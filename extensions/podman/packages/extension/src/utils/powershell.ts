@@ -70,7 +70,7 @@ class PowerShell5Client implements PowerShellClient {
     return true;
     try {
       const { stdout: res } = await extensionApi.process.exec(PowerShell5Exe, [
-        '$null -ne (whoami /groups /fo csv | ConvertFrom-Csv | Where-Object {$_.SID -eq "S-1-5-32-544"})',
+        '$null -ne (& "$env:WINDIR\\System32\\whoami.exe" /groups /fo csv | ConvertFrom-Csv | Where-Object {$_.SID -eq "S-1-5-32-544"})',
       ]);
       return res.trim() === 'True';
     } catch (err: unknown) {
