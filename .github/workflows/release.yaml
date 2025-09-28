@@ -135,11 +135,6 @@ jobs:
       matrix:
         include:
           - os: "windows-2025"
-          - os: "windows-2025"
-            airgap: "true"
-          - os: "macos-15"
-          - os: "macos-15"
-            airgap: "true"
           - os: "ubuntu-24.04"
     timeout-minutes: 60
     env:
